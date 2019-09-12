@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div id="banner">YÖNETİM PANELİ</div>
+    
+    <div id="menu">
+        <a href="/Urunler/Index">Ürünler</a>
+        <a href="/Kategoriler/Index">Kategoriler</a>
+        <a href="/Kullanicilar/Index">Kullanıcılar</a>
+        <a href="/Markalar/Index">Markalar</a>
+        <a href="/Projeler/Index">Projeler</a>
+        <a href="/Sayfalar/Index">Sayfalar</a>
+        <a href="/Sliderler/Index">Sliderlar</a>
+    </div>
+    
+    <div>
+        @RenderBody()
+    </div>
+
+    <div id="footer">
+
+    </div>
+</body>
+</html>

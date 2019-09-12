@@ -1,0 +1,33 @@
+﻿@model List<FIRMA_MVC.Models.KATEGORI>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div id="arama">
+
+</div>
+
+<div id="liste">
+    <table>
+        <tr>
+            <th>Sil</th>
+            <th>Kategori Refno</th>
+            <th>Kategori Adı</th>
+        </tr>
+        @{
+            foreach (var kategori in Model)
+            {
+                <tr>
+                    <th><a href="/Kategoriler/Delete/@kategori.KATEGORI_REFNO">Sil</a></th>
+                    <th>@kategori.KATEGORI_REFNO</th>
+                    <th><a href="/Kategoriler/Index/@kategori.KATEGORI_REFNO">@kategori.KATEGORI_ADI</a></th>
+                </tr>
+            }
+
+        }
+
+
+    </table>
+</div>
+

@@ -129,7 +129,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\KullanicilarController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProjelerController.cs" />
     <Compile Include="Areas\Admin\Controllers\UrunlerController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MarkalarController.cs" />
+    <Compile Include="Class1.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\KategorilerController.cs" />
     <Compile Include="Global.asax.cs">
@@ -168,6 +172,16 @@
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Urunler\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Urunler\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Markalar\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Markalar\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Projeler\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Projeler\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Projeler\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Projeler\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Projeler\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Kullanicilar\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Kullanicilar\Create.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -201,6 +215,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Default\" />
+    <Folder Include="images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

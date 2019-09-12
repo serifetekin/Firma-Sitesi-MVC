@@ -5,6 +5,12 @@
 
 <div id="arama">
 
+    <form action="/admin/Urunler/Search" method="post">
+        <label for="txtAra">Urun Adı</label>
+        <input id="txtAra"  name="txtAra" type="text" placeholder="Ürün Adı Giriniz" />
+        <input type="submit" class="button" value="Ara" />
+        <a class="lnkbutton" href="/admin/urunler/Create">Yeni</a>
+    </form>
 
 </div>
 
@@ -30,11 +36,12 @@
                         @urun.URUN_ADI
                     </a>
                 </th>
+                
                 <th>@urun.FIYATI</th>
                 <th>@urun.DURUMU</th>
                 <th>@urun.KATEGORI.KATEGORI_ADI</th>
                 <th>@urun.MARKA.MARKA_ADI</th>
-                <th><img src="~/images/@urun.RESIM1" /></th>
+                <th><img id="img@(@urun.URUN_REFNO)" class="urunresim" src="~/images/@urun.RESIM1" /></th>
             </tr>
         }
     </table>

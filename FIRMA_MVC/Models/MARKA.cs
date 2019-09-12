@@ -18,8 +18,11 @@ namespace FIRMA_MVC.Models
         [Key]
         public int MARKA_REFNO { get; set; }
 
-        [Required]
-        [StringLength(20)]
+        [Required(ErrorMessage = "Marka Adýný giriniz!")]
+        [StringLength(20, ErrorMessage = "Ürün adý 3 ile 20 karakter arasýnda olmalý",
+                         ErrorMessageResourceName = "",
+                         ErrorMessageResourceType = null,
+                         MinimumLength = 3)]
         public string MARKA_ADI { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
