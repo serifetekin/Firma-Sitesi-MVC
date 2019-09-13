@@ -16,18 +16,18 @@ namespace FIRMA_MVC.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult kurumsal()
         {
-            
+            ViewData["sayfa"]=db.SAYFAs.Where(s => s.BASLIK=="kurumsal").SingleOrDefault(); // yalnızca bir kayıt getirebilir. iki kayıt getirirse hata verir. firstordefault dersek bu sorun çözülebilir.
 
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult iletisim()
         {
-            
+            ViewData["sayfa"]=db.SAYFAs.Where(s => s.BASLIK=="iletisim").SingleOrDefault();
 
-            return View();
+            return View("kurumsal");
         }
     }
 }
