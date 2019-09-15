@@ -12,15 +12,18 @@ namespace FIRMA_MVC.Models
         [Key]
         public int SLIDER_REFNO { get; set; }
 
-        [Required]
-        [StringLength(150)]
+        [Required(ErrorMessage = "Baþlýk giriniz!")]
+        [StringLength(150, ErrorMessage = "Baþlýk 3 ile 150 karakter arasýnda olmalý",
+                         ErrorMessageResourceName = "",
+                         ErrorMessageResourceType = null,
+                         MinimumLength = 3)]
         public string BASLIK { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Bir link ekleyiniz.")]
         [StringLength(50)]
         public string LINK { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Bir resim seçiniz")]
         [StringLength(50)]
         public string RESIM { get; set; }
 

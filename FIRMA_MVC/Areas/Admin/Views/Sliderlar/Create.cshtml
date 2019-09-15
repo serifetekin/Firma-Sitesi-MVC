@@ -1,0 +1,79 @@
+﻿@using FIRMA_MVC.Models;
+@model SLIDER
+@{
+    ViewBag.Title = "Create";
+    //controllerdan gelen verileri kendi tiplerine dönüştürüyoruz.
+    string hatalar = "";
+    if (ViewData["hatalar"] != null)
+    {
+        hatalar = ViewData["hatalar"].ToString();
+    }
+}
+
+
+<div id="hatalar" style=" @( hatalar.Length > 0 ? "":"display:none") ">
+    @hatalar
+</div>
+<form action="/admin/sliderlar/Create" method="post" enctype="multipart/form-data">
+
+    <div class="form-horizontal">
+
+        <div class="form-group">
+            <label for="SLIDER_REFNO" class="control-label col-md-2">Slider Refno</label>
+            <div class="col-md-10">
+                <input type="text" name="SLIDER_REFNO" id="SLIDER_REFNO" value="@Model.SLIDER_REFNO" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="BASLIK" class="control-label col-md-2">Başlık</label>
+            <div class="col-md-10">
+                <input type="text" name="BASLIK" id="BASLIK" value="@Model.BASLIK" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="LINK" class="control-label col-md-2">Link</label>
+            <div class="col-md-10">
+                <input type="text" name="LINK" id="LINK" value="@Model.LINK" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="RESIM" class="control-label col-md-2">Resim</label>
+            <div class="col-md-10">
+                <input type="file" name="RESIM" id="RESIM4" value="@Model.RESIM" />
+                <img class="urunresim" src="~/images/@Model.RESIM" />
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label for="DURUMU" class="control-label col-md-2">Durumu</label>
+            <div class="col-md-10">
+                <select name="DURUMU" id="DURUMU">
+                    @if (Model.DURUMU == true)
+                    {
+                        <option selected value="true">Aktif</option>
+                        <option value="false">Pasif</option>
+                    }
+                    else
+                    {
+                        <option value="true">Aktif</option>
+                        <option selected value="false">Pasif</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Kaydet" class="btn btn-default" />
+                <a href="/admin/sliderlar/index" class="btn btn-default">Vazgeç</a>
+            </div>
+        </div>
+
+
+    </div>
+
+</form>
+

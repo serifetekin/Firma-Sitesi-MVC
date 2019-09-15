@@ -12,11 +12,14 @@ namespace FIRMA_MVC.Models
         [Key]
         public int SAYFA_REFNO { get; set; }
 
-        [Required]
-        [StringLength(100)]
+        [Required(ErrorMessage = "Baþlýk giriniz!")]
+        [StringLength(100, ErrorMessage = "Baþlýk 3 ile 100 karakter arasýnda olmalý",
+                         ErrorMessageResourceName = "",
+                         ErrorMessageResourceType = null,
+                         MinimumLength = 3)]
         public string BASLIK { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Ýçerik giriniz!")]
         public string ICERIK { get; set; }
     }
 }

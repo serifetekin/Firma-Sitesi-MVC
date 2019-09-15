@@ -1,0 +1,48 @@
+﻿@model List<FIRMA_MVC.Models.PROJE>
+
+@{
+    ViewBag.Title = "Index";
+    string veri = ViewData["veri"].ToString();
+}
+
+<div id="arama">
+
+    <form action="/Admin/Projeler2/Search" method="post">
+        <label>Ara</label>
+        <input type="text" name="txtAra" placeholder="Proje Adı Giriniz" value="@veri" />
+        <input type="submit" value="Ara" class="button" />
+        <span class="lnkbutton">
+            <a href="/Admin/Projeler2/Create">Yeni</a>
+        </span>
+    </form>
+
+</div>
+
+<div id="liste">
+    <table>
+        <tr>
+            <th>Sil</th>
+            <th>Proje Refno</th>
+            <th>Proje Adı</th>
+            <th>Resim</th>
+            <th>Açıklama</th>
+        </tr>
+        @{
+            foreach (var proje in Model)
+            {
+                <tr>
+                    <th><a href="/Admin/Projeler2/Delete/@proje.PROJE_REFNO">Sil</a></th>
+                    <th>@proje.PROJE_REFNO</th>
+                    <th><a href="/Admin/Projeler2/Create/@proje.PROJE_REFNO">@proje.PROJE_ADI</a></th>
+                    <th><img id="img@(@proje.PROJE_REFNO)" class="urunresim" src="~/images/@proje.RESIM" />
+                    </th>
+                    <th><a href="/Admin/Projeler2/Create/@proje.PROJE_REFNO">@proje.ACIKLAMA</a></th>
+                </tr>
+            }
+
+        }
+
+
+    </table>
+</div>
+

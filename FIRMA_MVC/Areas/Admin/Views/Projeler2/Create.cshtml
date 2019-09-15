@@ -1,0 +1,61 @@
+﻿@model FIRMA_MVC.Models.PROJE
+@{
+    ViewBag.Title = "Create";
+    string hatalar = "";
+    if (ViewData["hatalar"] != null)
+    {
+        hatalar = ViewData["hatalar"].ToString();
+    }
+}
+
+<div id="hatalar" style=" @( hatalar.Length > 0 ? "":"display:none") ">
+    @hatalar
+</div>
+
+<form action="/Admin/Projeler2/Create" method="post" enctype="multipart/form-data">
+    <div class="form-horizontal">
+
+        <div class="form-group">
+            <label class="control-label col-md-6">KAYIT FORMU</label>
+        </div>
+
+        <div class="form-group">
+            <label for="PROJE_REFNO" class="control-label col-md-2">Proje Refno</label>
+            <div class="col-md-10">
+                <input type="text" name="PROJE_REFNO" id="PROJE_REFNO" value="@Model.PROJE_REFNO" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="PROJE_ADI" class="control-label col-md-2">Proje Adı</label>
+            <div class="col-md-10">
+                <input type="text" name="PROJE_ADI" id="PROJE_ADI" value="@Model.PROJE_ADI" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="RESIM" class="control-label col-md-2">Resim</label>
+            <div class="col-md-10">
+                <input type="file" name="RESIM" id="RESIM" value="@Model.RESIM" />
+                <img class="urunresim" src="~/images/@Model.RESIM" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="ACIKLAMA" class="control-label col-md-2">Açıklama</label>
+            <div class="col-md-10">
+                <input type="text" name="ACIKLAMA" id="ACIKLAMA" value="@Model.ACIKLAMA" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Kaydet" class="btn btn-default" />
+                <a href="/admin/Projeler2/index" class="btn btn-default">Vazgeç</a>
+            </div>
+        </div>
+
+
+    </div>
+    
+</form>

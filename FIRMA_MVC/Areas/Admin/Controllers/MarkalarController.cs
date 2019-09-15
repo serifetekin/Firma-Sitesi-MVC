@@ -57,7 +57,7 @@ namespace FIRMA_MVC.Areas.Admin
         }
 
         [HttpPost]
-        public ActionResult Create(MARKA marka, HttpPostAttribute MARKA_ADI)
+        public ActionResult Create(MARKA marka)
         {
             if (ModelState.IsValid)
             {

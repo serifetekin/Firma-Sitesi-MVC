@@ -1,0 +1,45 @@
+﻿@model List<FIRMA_MVC.Models.SAYFA>
+
+@{
+    ViewBag.Title = "Index";
+    string veri = ViewData["veri"].ToString();
+}
+
+<div id="arama">
+
+    <form action="/Admin/Sayfalar/Search" method="post">
+        <label>Ara</label>
+        <input type="text" name="txtAra" placeholder="Başlık Giriniz" value="@veri" />
+        <input type="submit" value="Ara" class="button" />
+        <span class="lnkbutton">
+            <a href="/Admin/Sayfalar/Create">Yeni</a>
+        </span>
+    </form>
+
+</div>
+
+<div id="liste">
+    <table>
+        <tr>
+            <th>Sil</th>
+            <th>Sayfa Refno</th>
+            <th>Başlık</th>
+            <th>İçerik</th>
+        </tr>
+        @{
+            foreach (var sayfa in Model)
+            {
+                <tr>
+                    <th><a href="/Admin/Sayfalar/Delete/@sayfa.SAYFA_REFNO">Sil</a></th>
+                    <th>@sayfa.SAYFA_REFNO</th>
+                    <th><a href="/Admin/Sayfalar/Create/@sayfa.SAYFA_REFNO">@sayfa.BASLIK</a></th>
+                    <th><a href="/Admin/Sayfalar/Create/@sayfa.SAYFA_REFNO">@sayfa.ICERIK</a></th>
+                </tr>
+            }
+
+        }
+
+
+    </table>
+</div>
+

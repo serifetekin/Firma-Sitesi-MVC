@@ -1,0 +1,51 @@
+﻿@model FIRMA_MVC.Models.SAYFA
+@{
+    ViewBag.Title = "Create";
+
+    string hatalar = "";
+    if (ViewData["hatalar"] != null)
+    {
+        hatalar = ViewData["hatalar"].ToString();
+    }
+}
+
+<div id="hatalar" style=" @( hatalar.Length > 0 ? "":"display:none") ">
+    @hatalar
+</div>
+
+<form action="/Admin/Sayfalar/Create" method="post"  enctype="multipart/form-data">
+    <div class="form-horizontal">
+
+        <div class="form-group">
+            <label class="control-label col-md-6">KAYIT FORMU</label>
+        </div>
+
+        <div class="form-group">
+            <label for="SAYFA_REFNO" class="control-label col-md-2">Sayfa Refno</label>
+            <div class="col-md-10">
+                <input type="text" readonly name="SAYFA_REFNO" id="SAYFA_REFNO" value="@Model.SAYFA_REFNO" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="BASLIK" class="control-label col-md-2">Başlık</label>
+            <div class="col-md-10">
+                <input type="text" name="BASLIK" id="BASLIK" value="@Model.SAYFA_REFNO" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="ICERIK" class="control-label col-md-2">İçerik</label>
+            <div class="col-md-10">
+                <input type="text" name="ICERIK" id="ICERIK" value="@Model.ICERIK" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Kaydet" class="btn btn-default" />
+                <a href="/admin/sayfalar/index" class="btn btn-default">Vazgeç</a>
+            </div>
+        </div>
+    </div>
+</form>

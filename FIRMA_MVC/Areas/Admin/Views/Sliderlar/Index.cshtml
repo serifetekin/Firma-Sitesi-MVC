@@ -1,0 +1,47 @@
+﻿@model List<FIRMA_MVC.Models.SLIDER>
+@{
+    ViewBag.Title = "Index";
+    string veri = ViewData["veri"].ToString();
+}
+
+<div id="arama">
+
+    <form action="/Admin/Sliderlar/Search" method="post">
+        <label for="txtAra">Başlık</label>
+        <input id="txtAra" name="txtAra" type="text" placeholder="Başlık Giriniz" value="@veri" />
+        <input type="submit" class="button" value="Ara" />
+        <a class="lnkbutton" href="/Admin/Sliderlar/Create">Yeni</a>
+    </form>
+
+</div>
+
+<div id="liste">
+    <table>
+        <tr>
+            <th>Sil</th>
+            <th>Slider Refno</th>
+            <th>Başlık</th>
+            <th>Link</th>
+            <th>Resim</th>
+            <th>Durumu</th>
+
+        </tr>
+        @foreach (var slider in Model)
+        {
+            <tr>
+                <th><a href="/Admin/Sliderlar/Delete/@slider.SLIDER_REFNO">Sil</a></th>
+                <th>@slider.SLIDER_REFNO</th>
+                <th>
+                    <a href="/Admin/Sliderlar/Create/@slider.SLIDER_REFNO">
+                        @slider.BASLIK
+                    </a>
+                </th>
+
+                <th><a href="/Admin/Sliderlar/Create/@slider.SLIDER_REFNO">@slider.LINK</a></th>
+                <th><img id="img@(@slider.SLIDER_REFNO)" class="urunresim" src="~/images/@slider.RESIM" /></th>
+                <th><a href="/Admin/Sliderlar/Create/@slider.SLIDER_REFNO">@slider.DURUMU</a></th>
+            </tr>
+        }
+    </table>
+</div>
+

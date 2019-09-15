@@ -13,18 +13,24 @@ namespace FIRMA_MVC.Models
         [Display(Name = "Proje Refno")]
         public int PROJE_REFNO { get; set; }
 
-        [Required]
-        [StringLength(50)]
+        [Required(ErrorMessage = "Proje Adýný giriniz!")]
+        [StringLength(50, ErrorMessage = "Proje adý 3 ile 50 karakter arasýnda olmalý",
+                         ErrorMessageResourceName = "",
+                         ErrorMessageResourceType = null,
+                         MinimumLength = 3)]
         [Display(Name ="Proje Adý")]
         public string PROJE_ADI { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Bir resim seçiniz")]
         [StringLength(50)]
         [Display(Name = "Resim")]
         public string RESIM { get; set; }
 
-        [Required]
-        [StringLength(1000)]
+        [Required(ErrorMessage = "Açýklama giriniz!")]
+        [StringLength(1000, ErrorMessage = "Açýklama 3 ile 50 karakter arasýnda olmalý",
+                         ErrorMessageResourceName = "",
+                         ErrorMessageResourceType = null,
+                         MinimumLength = 3)]
         [Display(Name = "Açýklama")]
         public string ACIKLAMA { get; set; }
     }
