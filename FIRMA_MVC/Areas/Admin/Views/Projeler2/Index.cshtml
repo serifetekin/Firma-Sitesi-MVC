@@ -5,6 +5,8 @@
     string veri = ViewData["veri"].ToString();
 }
 
+
+
 <div id="arama">
 
     <form action="/Admin/Projeler2/Search" method="post">
@@ -34,14 +36,13 @@
                     <th><a href="/Admin/Projeler2/Delete/@proje.PROJE_REFNO">Sil</a></th>
                     <th>@proje.PROJE_REFNO</th>
                     <th><a href="/Admin/Projeler2/Create/@proje.PROJE_REFNO">@proje.PROJE_ADI</a></th>
-                    <th><img id="img@(@proje.PROJE_REFNO)" class="urunresim" src="~/images/@proje.RESIM" />
+                    <th>
+                        <img id="img@(@proje.PROJE_REFNO)" class="urunresim" src="~/images/@proje.RESIM" />
                     </th>
                     <th><a href="/Admin/Projeler2/Create/@proje.PROJE_REFNO">@proje.ACIKLAMA</a></th>
                 </tr>
             }
-
         }
-
 
     </table>
 </div>

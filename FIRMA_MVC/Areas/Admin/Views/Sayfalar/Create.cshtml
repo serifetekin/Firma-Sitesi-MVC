@@ -8,12 +8,16 @@
         hatalar = ViewData["hatalar"].ToString();
     }
 }
+@Scripts.Render("~/Scripts/jquery-3.3.1.min.js")
+@Scripts.Render("~/ckeditor/ckeditor.js");
+@Scripts.Render("~/ckeditor/ckfinder/ckfinder.js");
+@Scripts.Render("~/Scripts/jquery.validate.js")
 
 <div id="hatalar" style=" @( hatalar.Length > 0 ? "":"display:none") ">
     @hatalar
 </div>
 
-<form action="/Admin/Sayfalar/Create" method="post"  enctype="multipart/form-data">
+<form action="/Admin/Sayfalar/Create" method="post" enctype="multipart/form-data">
     <div class="form-horizontal">
 
         <div class="form-group">
@@ -35,9 +39,11 @@
         </div>
 
         <div class="form-group">
-            <label for="ICERIK" class="control-label col-md-2">İçerik</label>
+            @Html.Label("İçerik:", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input type="text" name="ICERIK" id="ICERIK" value="@Model.ICERIK" class="form-control" />
+                @Html.TextAreaFor(model => model.ICERIK, new { @id = "@proje.ICERIK" })
+                @Html.ValidationMessageFor(model => model.ICERIK, "", new { @class = "text-danger" })
+                <script>CKEDITOR.replace('ICERIK');</script>
             </div>
         </div>
 

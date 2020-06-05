@@ -56,6 +56,7 @@ namespace FIRMA_MVC.Areas.Admin
             }
         }
 
+        [ValidateInput(false)]
         [HttpPost]
         public ActionResult Create(PROJE proje, HttpPostedFileBase RESIM)
         {
